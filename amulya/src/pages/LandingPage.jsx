@@ -1,8 +1,8 @@
-import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
 import ServicesSection from "../components/ServiceSection";
+import ContactSection from "../components/ContactSection";
 import { useTheme } from "../context/ThemeContext";
 
 const LandingPage = () => {
@@ -21,16 +21,19 @@ const LandingPage = () => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className={`min-h-screen ${
+        className={`min-h-screen pt-20 overflow-hidden ${
           darkMode
             ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
             : "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
         } transition-colors duration-500`}
       >
         <div className="w-full mx-auto">
-          <HeroSection />
-          <AboutSection />
-          <ServicesSection />
+          <main className="space-y-16 sm:space-y-20">
+            <HeroSection />
+            <AboutSection />
+            <ServicesSection />
+            <ContactSection />
+          </main>
         </div>
       </motion.div>
     </AnimatePresence>

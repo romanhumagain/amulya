@@ -1,71 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  RiBuilding2Line as Building2,
-  RiFileCheckLine as FileCheck,
-  RiCalculatorLine as Calculator,
-  RiArrowUpLine as TrendingUp,  // safe replacement
-  RiShieldCheckLine as Shield,
-  RiUser3Line as Users,
-  RiCheckboxCircleFill as CheckCircle,
-} from 'react-icons/ri';
-
+import { RiArrowRightLine, RiServiceLine } from 'react-icons/ri';
 import { useTheme } from '../context/ThemeContext';
+import { services } from '../constant/data';
 
 const ServicesSection = () => {
   const { darkMode } = useTheme();
-
-  const services = [
-    {
-      icon: Building2,
-      title: 'Company Registration',
-      description: 'Complete company formation services including documentation, compliance, and legal structuring for your business.',
-      features: ['Private Limited Company', 'LLP Registration', 'Partnership Firm', 'Sole Proprietorship'],
-    },
-    {
-      icon: FileCheck,
-      title: 'Audit & Assurance',
-      description: 'Comprehensive audit services ensuring compliance with regulations and providing financial transparency.',
-      features: ['Statutory Audit', 'Internal Audit', 'Tax Audit', 'GST Audit'],
-    },
-    {
-      icon: Calculator,
-      title: 'Taxation Services',
-      description: 'Expert tax planning, filing, and compliance services for individuals and businesses.',
-      features: ['Income Tax Filing', 'GST Services', 'TDS Compliance', 'Tax Planning'],
-    },
-    {
-      icon: TrendingUp,
-      title: 'Business Advisory',
-      description: 'Strategic business consulting to help your company grow and achieve its financial goals.',
-      features: ['Financial Planning', 'Business Strategy', 'Investment Advisory', 'Risk Management'],
-    },
-    {
-      icon: Shield,
-      title: 'Legal Compliance',
-      description: 'Ensure your business stays compliant with all legal requirements and regulatory changes.',
-      features: ['ROC Compliance', 'Annual Filings', 'Board Meetings', 'Regulatory Updates'],
-    },
-    {
-      icon: Users,
-      title: 'Corporate Services',
-      description: 'End-to-end corporate solutions including company updates, closures, and restructuring.',
-      features: ['Company Closure', 'Name Change', 'Share Transfer', 'Director Changes'],
-    },
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -78,80 +31,140 @@ const ServicesSection = () => {
 
   return (
     <section id="services" className="relative py-20 overflow-hidden">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      {/* Background */}
+      <div className={`absolute inset-0 ${
+        darkMode 
+          ? "bg-gradient-to-b from-slate-900 to-gray-900" 
+          : "bg-gradient-to-b from-gray-50 to-white"
+      }`}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]" />
+      </div>
+
+      <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="mb-16 text-center"
         >
-          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-clip-text text-transparent ${
-            darkMode
-              ? 'bg-gradient-to-r from-blue-400 to-purple-500'
-              : 'bg-gradient-to-r from-blue-600 to-purple-700'
-          }`}>
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm font-medium transition-all duration-300 border rounded-full"
+            style={{
+              backgroundColor: darkMode ? 'rgba(30, 58, 138, 0.2)' : 'rgba(59, 130, 246, 0.1)',
+              color: darkMode ? 'rgb(147, 197, 253)' : 'rgb(37, 99, 235)',
+              borderColor: darkMode ? 'rgba(59, 130, 246, 0.3)' : 'rgba(59, 130, 246, 0.2)'
+            }}
+          >
+            <RiServiceLine className="w-4 h-4" />
             Our Services
+          </motion.div>
+
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 ${
+            darkMode ? 'text-white' : 'text-gray-900'
+          }`}>
+            Comprehensive Business
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
+              Solutions
+            </span>
           </h2>
-          <p className={`text-lg sm:text-xl max-w-3xl mx-auto mb-16 ${
+          
+          <p className={`text-lg max-w-3xl mx-auto leading-relaxed ${
             darkMode ? 'text-gray-300' : 'text-gray-600'
           }`}>
-            Expert business consulting tailored to your needs. We provide comprehensive solutions to help your business thrive in today's competitive landscape.
+            Expert business consulting tailored to your needs. We provide comprehensive solutions 
+            to help your business thrive in today's competitive landscape.
           </p>
         </motion.div>
 
+        {/* Services Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className={`p-6 sm:p-8 rounded-2xl transition-all duration-300 transform hover:scale-105 ${
+              whileHover={{ y: -8, scale: 1.02 }}
+              className={`group relative p-8 rounded-2xl border transition-all duration-500 ${
                 darkMode
-                  ? 'bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 hover:border-blue-500'
-                  : 'bg-white bg-opacity-80 backdrop-blur-lg shadow-xl hover:shadow-2xl'
-              }`}
+                  ? 'bg-slate-800/50 border-slate-700/50 hover:bg-slate-800/80 hover:border-blue-500/50'
+                  : 'bg-white/80 border-gray-200/50 hover:bg-white hover:border-blue-300/50'
+              } backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-blue-500/10`}
             >
-              <div className="flex flex-col items-center">
-                <div className={`inline-flex p-4 rounded-xl mb-6 ${
+              {/* Background Gradient */}
+              <div className="absolute inset-0 transition-opacity duration-500 opacity-0 rounded-2xl bg-gradient-to-br from-blue-50/5 to-transparent group-hover:opacity-100" />
+              
+              {/* Icon */}
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+                className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 transition-all duration-300 ${
                   darkMode 
-                    ? 'bg-gradient-to-br from-blue-500/20 to-purple-500/20' 
-                    : 'bg-gradient-to-br from-blue-100 to-purple-100'
-                }`}>
-                  <service.icon className={`w-8 h-8 ${
-                    darkMode
-                      ? 'text-blue-400'
-                      : 'text-blue-600'
-                  }`} />
-                </div>
-                <h3 className={`text-xl sm:text-2xl font-bold mb-4 ${
+                    ? 'bg-blue-500/20 text-blue-400 group-hover:bg-blue-500/30 group-hover:text-blue-300' 
+                    : 'bg-blue-100 text-blue-600 group-hover:bg-blue-200 group-hover:text-blue-700'
+                }`}
+              >
+                <service.icon className="w-8 h-8" />
+              </motion.div>
+
+              {/* Content */}
+              <div className="relative z-10">
+                <h3 className={`text-xl font-bold mb-3 ${
                   darkMode ? 'text-white' : 'text-gray-900'
                 }`}>
                   {service.title}
                 </h3>
-                <p className={`text-base sm:text-lg text-center mb-6 ${
+                
+                <p className={`text-base leading-relaxed mb-6 ${
                   darkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
                   {service.description}
                 </p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className={`flex items-center text-sm sm:text-base ${
-                      darkMode ? 'text-gray-400' : 'text-gray-700'
-                    }`}>
-                      <CheckCircle className="w-5 h-5 mr-2 text-blue-500" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+
+                {/* Learn More Link */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  className="flex items-center gap-2 text-sm font-medium text-blue-600 transition-colors duration-300 group-hover:text-blue-700"
+                >
+                  <span>Learn More</span>
+                  <RiArrowRightLine className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </motion.div>
               </div>
+
+              {/* Hover Effect Border */}
+              <div className="absolute inset-0 transition-all duration-500 border-2 rounded-2xl border-blue-500/0 group-hover:border-blue-500/20" />
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center gap-2 px-8 py-4 font-semibold text-white transition-all duration-300 shadow-lg bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-xl hover:shadow-xl hover:shadow-blue-500/25 group"
+          >
+            Get Started Today
+            <RiArrowRightLine className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </motion.button>
         </motion.div>
       </div>
     </section>

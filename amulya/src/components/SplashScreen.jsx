@@ -5,7 +5,7 @@ import logo from "../assets/images/logo.png";
 
 const SplashScreen = ({ finishLoading }) => {
   React.useEffect(() => {
-    setTimeout(finishLoading, 2500);
+    setTimeout(finishLoading, 3000);
   }, [finishLoading]);
 
   return (
@@ -17,7 +17,7 @@ const SplashScreen = ({ finishLoading }) => {
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900">
           {/* Animated particles */}
           <motion.div
             className="absolute inset-0"
@@ -133,7 +133,7 @@ const SplashScreen = ({ finishLoading }) => {
 
           {/* Tagline */}
           <motion.p
-            className="max-w-md mb-8 text-lg leading-relaxed text-blue-300 sm:text-xl"
+            className="max-w-md mb-8 text-lg leading-relaxed text-blue-200 sm:text-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { X, Mail, Phone, User, MessageCircle, Send, Check } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const ContactModal = ({ isOpen, onClose }) => {
-  const [darkMode, setDarkMode] = useState(true);
+  const {darkMode} = useTheme();
   const [formData, setFormData] = useState({
     name: '',
     email: '',

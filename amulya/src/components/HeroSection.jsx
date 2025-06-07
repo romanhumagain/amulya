@@ -153,6 +153,18 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                // onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+                onClick={
+                  // smooth scroll to services section
+                  () => {
+                    const servicesSection = document.getElementById("services");
+                    if (servicesSection) {
+                      servicesSection.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }
+                  }
+                }
                 className={`px-8 py-4 rounded-xl font-semibold text-base border-2 transition-all duration-300 backdrop-blur-sm ${
                   darkMode
                     ? "border-gray-700 text-gray-300 hover:bg-gray-800/50 hover:border-blue-500/50 hover:text-white"

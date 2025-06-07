@@ -197,7 +197,7 @@ const Footer = () => {
         <div className="px-6 mx-auto max-w-7xl lg:px-8">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             <p className="text-sm text-slate-400">
-              © {currentYear} Amulya. All rights reserved.
+              © {currentYear} Amulya Business Consultant Pvt.Ltd.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="transition-colors text-slate-400 hover:text-white">Privacy Policy</a>

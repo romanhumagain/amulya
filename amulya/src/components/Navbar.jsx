@@ -37,7 +37,7 @@ export const Navbar = () => {
   const handleContactClick = (e) => {
     e.preventDefault();
     setIsContactModalOpen(true);
-    setIsOpen(false); // Close mobile menu if open
+    setIsOpen(false);
   };
 
   return (
@@ -69,7 +69,6 @@ export const Navbar = () => {
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  // onClick={link.name === "Contact" ? handleContactClick : undefined}
                   whileHover={{ y: -2 }}
                   className={`relative font-medium text-base lg:text-lg transition-colors duration-200 
                     ${darkMode 
@@ -201,7 +200,7 @@ export const Navbar = () => {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      onClick={link.name === "Contact" ? handleContactClick : handleLinkClick}
+                      onClick={handleLinkClick}
                       className="block px-4 py-3 text-lg font-medium text-gray-700 transition-colors rounded-lg dark:text-gray-300 hover:text-blue-600 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                     >
                       {link.name}
@@ -213,7 +212,7 @@ export const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 }}
                     onClick={handleContactClick}
-                    className="w-full px-6 py-3 font-medium text-white transition-all duration-300 shadow-lg rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:shadow-xl hover:shadow-blue-500/25"
+                    className="px-6 py-3 font-medium text-white transition-all duration-300 shadow-lg rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:shadow-xl hover:shadow-blue-500/25"
                   >
                     Contact Us
                   </motion.button>

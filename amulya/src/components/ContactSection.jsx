@@ -56,7 +56,7 @@ const ContactForm = () => {
 
   if (status.submitted) {
     return (
-      <div className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-slate-50 to-blue-50">
+      <div  className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="w-full max-w-md p-8 text-center bg-white shadow-xl rounded-2xl">
           <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full">
             <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-slate-50 to-blue-50">
+    <div id='contact' className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="w-full max-w-2xl p-8 bg-white shadow-xl rounded-2xl">
         <div className="mb-8 text-center">
           <h2 className="mb-2 text-3xl font-bold text-gray-900">Get in Touch</h2>

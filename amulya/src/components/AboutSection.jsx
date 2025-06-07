@@ -55,7 +55,9 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="relative">
+    <section id="about" className={`relative ${
+        darkMode ? "bg-gray-900" : "bg-white"
+      }`}>
       {/* Stats Section - Full Width Blue Gradient */}
       <div className="relative py-8 overflow-hidden" ref={statsRef}>
         {/* Professional Blue Gradient Background */}
@@ -150,9 +152,7 @@ const AboutSection = () => {
       </div>
 
       {/* Main About Content */}
-      <div className={`px-4 py-24 mx-auto max-w-7xl sm:px-6 lg:px-8 overflow-hidden ${
-        darkMode ? "bg-gray-900" : "bg-white"
-      }`}>
+      <div className={`px-4 py-24 mx-auto max-w-7xl  sm:px-6 lg:px-8 overflow-hidden `}>
         <div className="grid items-center gap-16 lg:grid-cols-2">
           {/* Image Section */}
           <motion.div
@@ -160,7 +160,7 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative order-2 group lg:order-1"
+            className="relative order-2 group lg:order-1 px-[10px]"
           >
             {/* Floating background */}
             <motion.div
@@ -173,7 +173,7 @@ const AboutSection = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute -inset-6 rounded-3xl opacity-20 blur-2xl bg-gradient-to-br from-blue-500 to-blue-700"
+              className="absolute -inset-6 rounded-3xl opacity-20 blur-xl bg-gradient-to-br from-blue-500 to-blue-700"
             />
             
             <div className="relative">
@@ -195,7 +195,7 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="order-1 space-y-8 lg:order-2"
+            className="order-1 space-y-8 lg:order-2 px-[10px]"
           >
             {/* Badge */}
             <motion.div

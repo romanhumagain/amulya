@@ -21,14 +21,14 @@ const LandingPage = () => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className={`min-h-screen pt-10 lg:pt-8 overflow-hidden ${
+        className={`min-h-screen  overflow-hidden ${
           darkMode
             ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
             : "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
         } transition-colors duration-500`}
       >
         <div className="w-full mx-auto">
-          <main className="space-y-16 sm:space-y-20">
+          <main className="">
             <HeroSection />
             <AboutSection />
             <ServicesSection />

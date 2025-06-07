@@ -78,7 +78,7 @@ export const Navbar = () => {
                     after:content-[''] after:absolute after:left-0 after:bottom-[-4px] 
                     after:h-[2px] after:w-full after:origin-left after:scale-x-0 
                     after:transition-transform after:duration-300
-                    after:bg-gradient-to-r after:from-blue-600 after:to-purple-600
+                    after:bg-gradient-to-r after:from-blue-600 after:to-blue-600
                     hover:after:scale-x-100`}
                 >
                   {link.name}
@@ -109,7 +109,7 @@ export const Navbar = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleContactClick}
-                className="px-6 py-2.5 font-medium text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/25"
+                className="px-6 py-2.5 font-medium text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/25"
               >
                 Contact Us
               </motion.button>
@@ -170,7 +170,7 @@ export const Navbar = () => {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center space-x-2">
-                    <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-blue-600 to-blue-800">
                       <RiBuilding2Line className="w-6 h-6 text-white" />
                     </div>
                     <span className={`text-lg font-bold ${
@@ -212,7 +212,7 @@ export const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 }}
                     onClick={handleContactClick}
-                    className="px-6 py-3 font-medium text-white transition-all duration-300 shadow-lg rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:shadow-xl hover:shadow-blue-500/25"
+                    className="px-6 py-3 font-medium text-white transition-all duration-300 shadow-lg rounded-xl bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-700 hover:shadow-xl hover:shadow-blue-500/25"
                   >
                     Contact Us
                   </motion.button>

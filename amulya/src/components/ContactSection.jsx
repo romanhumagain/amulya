@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -70,12 +71,18 @@ const ContactForm = () => {
     );
   }
 
+  const {darkMode} = useTheme();
+
   return (
-    <div id='contact' className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="w-full max-w-2xl p-8 bg-white shadow-xl rounded-2xl">
+    <div id='contact' className={`flex items-center justify-center min-h-screen p-4 pb-16 bg-gradient-to-b ${
+        darkMode 
+          ? "bg-gradient-to-b from-slate-900 to-gray-900" 
+          : "bg-gradient-to-b from-white to-gray-50"
+      }`}>
+      <div className="w-full max-w-2xl p-8 bg-white shadow-xl dark:bg-gray-800 rounded-2xl">
         <div className="mb-8 text-center">
-          <h2 className="mb-2 text-3xl font-bold text-gray-900">Get in Touch</h2>
-          <p className="text-gray-600">Send us a message and we'll get back to you as soon as possible.</p>
+          <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-gray-200">Get in Touch</h2>
+          <p className="text-gray-500">Send us a message and we'll get back to you as soon as possible.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

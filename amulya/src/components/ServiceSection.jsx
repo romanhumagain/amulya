@@ -30,12 +30,12 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="relative py-20 overflow-hidden">
+    <section id="services" className="relative py-20 px-[10px] overflow-hidden">
       {/* Background */}
       <div className={`absolute inset-0 ${
         darkMode 
           ? "bg-gradient-to-b from-slate-900 to-gray-900" 
-          : "bg-gradient-to-b from-gray-50 to-white"
+          : "bg-gradient-to-b from-white to-gray-50"
       }`}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]" />
       </div>
@@ -96,9 +96,9 @@ const ServicesSection = () => {
               key={service.title}
               variants={itemVariants}
               whileHover={{ y: -8, scale: 1.02 }}
-              className={`group relative p-8 rounded-2xl border transition-all duration-500 ${
+              className={`group relative  p-6 lg:p-8 rounded-2xl border transition-all duration-500  ${
                 darkMode
-                  ? 'bg-slate-800/50 border-slate-700/50 hover:bg-slate-800/80 hover:border-blue-500/50'
+                  ? 'bg-slate-800/50 border-slate-700/50 hover:bg-slate-800/80 hover:border-blue-500/50 '
                   : 'bg-white/80 border-gray-200/50 hover:bg-white hover:border-blue-300/50'
               } backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-blue-500/10`}
             >
@@ -126,7 +126,7 @@ const ServicesSection = () => {
                   {service.title}
                 </h3>
                 
-                <p className={`text-base leading-relaxed mb-6 ${
+                <p className={`text-base leading-relaxed  ${
                   darkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
                   {service.description}

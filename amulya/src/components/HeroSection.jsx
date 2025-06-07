@@ -25,7 +25,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative flex items-center min-h-screen overflow-hidden"
+      className="relative flex items-center min-h-screen px-[10px] pt-10 overflow-hidden"
     >
       {/* Background with subtle pattern */}
       <div

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import HomePage from "./pages/HomePage.jsx";
 import { Navbar } from "./components/Navbar.jsx";
 import HeroSection from "./components/HeroSection.jsx";
@@ -12,6 +12,7 @@ import SplashScreen from "./components/SplashScreen";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth";
@@ -21,22 +22,23 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider>
-      <Router>
-        {loading ? (
-          <SplashScreen finishLoading={() => setLoading(false)} />
-        ) : (
-          <div className="min-h-screen transition-colors bg-white dark:bg-gray-950 font-poppins">
-            <Navbar />
+    <Router>
+      {loading ? (
+        <SplashScreen finishLoading={() => setLoading(false)} />
+      ) : (
+        <div
+          className={`min-h-screen transition-colors  font-poppins
+          `}
+        >
+          <Navbar />
 
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-            </Routes>
-            <Footer />
-          </div>
-        )}
-      </Router>
-    </ThemeProvider>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+          </Routes>
+          <Footer />
+        </div>
+      )}
+    </Router>
   );
 }
 

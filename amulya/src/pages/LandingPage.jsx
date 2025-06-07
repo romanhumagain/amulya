@@ -21,7 +21,7 @@ const LandingPage = () => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className={`min-h-screen pt-20 overflow-hidden ${
+        className={`min-h-screen pt-10 lg:pt-8 overflow-hidden ${
           darkMode
             ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
             : "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"

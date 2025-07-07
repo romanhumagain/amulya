@@ -15,19 +15,22 @@ With over a decade of expertise, we simplify complex processes and provide clear
 
 ## 📂 Project Structure
 
-
+```
 amulya/
 ├── public/
 ├── src/
-│ ├── assets/ # Images and static assets
-│ ├── components/ # Reusable components
-│ ├── pages/ # Page components
-│ ├── App.jsx # Main app layout
-│ └── main.jsx # Entry point
+│   ├── assets/                # Images and static assets
+│   ├── components/            # Reusable components
+│   ├── pages/                 # Page components
+│   ├── App.jsx                # Main app layout
+│   └── main.jsx               # Entry point
 ├── index.html
 ├── tailwind.config.js
 ├── vite.config.js
 └── package.json
+```
+
+---
 
 ## ✨ Features
 
@@ -48,3 +51,4 @@ git clone https://github.com/romanhumagain/amulya.git
 cd amulya/amulya
 npm install
 npm run dev
+```

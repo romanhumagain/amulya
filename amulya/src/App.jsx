@@ -23,9 +23,9 @@ function App() {
 
   return (
     <Router>
-      {loading ? (
+      {/* {loading ? (
         <SplashScreen finishLoading={() => setLoading(false)} />
-      ) : (
+      ) : ( */}
         <div
           className={`min-h-screen transition-colors  font-poppins
           `}
@@ -37,7 +37,7 @@ function App() {
           </Routes>
           <Footer />
         </div>
-      )}
+
     </Router>
   );
 }

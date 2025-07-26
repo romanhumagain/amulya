@@ -1,54 +1,77 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  FaFacebookF, 
-  FaInstagram, 
-  FaWhatsapp, 
-  FaLinkedinIn, 
-  FaBuilding, 
-  FaPhoneAlt, 
-  FaEnvelope, 
-  FaMapMarkerAlt, 
-  FaArrowRight 
-} from 'react-icons/fa';
-import { useTheme } from '../context/ThemeContext';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaBuilding,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaArrowRight,
+} from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
+import logo from "../assets/images/logo.png";
 
 const Footer = () => {
   const { darkMode } = useTheme();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: FaFacebookF, href: '#', label: 'Facebook', color: 'hover:text-blue-400' },
-    { icon: FaInstagram, href: '#', label: 'Instagram', color: 'hover:text-pink-400' },
-    { icon: FaWhatsapp, href: '#', label: 'WhatsApp', color: 'hover:text-green-400' },
-    { icon: FaLinkedinIn, href: '#', label: 'LinkedIn', color: 'hover:text-blue-500' },
+    {
+      icon: FaFacebookF,
+      href: "#",
+      label: "Facebook",
+      color: "hover:text-blue-400",
+    },
+    {
+      icon: FaInstagram,
+      href: "#",
+      label: "Instagram",
+      color: "hover:text-pink-400",
+    },
+    {
+      icon: FaWhatsapp,
+      href: "#",
+      label: "WhatsApp",
+      color: "hover:text-green-400",
+    },
+    {
+      icon: FaLinkedinIn,
+      href: "#",
+      label: "LinkedIn",
+      color: "hover:text-blue-500",
+    },
   ];
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Blog", href: "#blog" },
+    { name: "Contact Us", href: "#contact" },
   ];
 
   return (
-    <footer className={`relative overflow-hidden ${
-      darkMode
-        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'
-        : 'bg-gradient-to-br from-slate-800 via-slate-900 to-black'
-    }`}>
+    <footer
+      className={`relative overflow-hidden ${
+        darkMode
+          ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+          : "bg-gradient-to-br from-slate-800 via-slate-900 to-black"
+      }`}
+    >
       {/* Subtle Background Pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: "url('data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E')",
+          backgroundImage:
+            "url('data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E')",
         }}
       />
 
       <div className="relative z-10 px-6 py-16 mx-auto max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-4 md:grid-cols-2">
-          
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -59,18 +82,26 @@ const Footer = () => {
           >
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg shadow-lg bg-gradient-to-br from-blue-500 to-purple-600">
+              {/* <div className="flex items-center justify-center w-10 h-10 rounded-lg shadow-lg bg-gradient-to-br from-blue-500 to-purple-600">
                 <FaBuilding className="w-5 h-5 text-white" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold tracking-tight text-white">Amulya</h3>
                 <p className="text-sm font-medium text-slate-300">Business Consultant</p>
-              </div>
+              </div> */}
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center space-x-2 cursor-pointer"
+              >
+                <img src={logo} alt="Logo" className="w-12 h-12 md:w-14 md:h-14 invert" />
+              </motion.div>
             </div>
 
             {/* Description */}
             <p className="max-w-lg leading-relaxed text-slate-300">
-              We specialize in setting up businesses and providing operational services to help you succeed in today's competitive market.
+              We specialize in setting up businesses and providing operational
+              services to help you succeed in today's competitive market.
             </p>
 
             {/* Social Links */}
@@ -139,7 +170,6 @@ const Footer = () => {
           >
             <h4 className="text-lg font-semibold text-white">Contact Info</h4>
             <div className="space-y-4">
-              
               {/* Phone */}
               <motion.div
                 whileHover={{ x: 3 }}
@@ -149,8 +179,13 @@ const Footer = () => {
                   <FaPhoneAlt className="w-3.5 h-3.5 text-slate-300" />
                 </div>
                 <div>
-                  <p className="text-xs tracking-wide uppercase text-slate-400">Phone</p>
-                  <a href="tel:+9779819671738" className="text-sm font-medium text-white transition-colors hover:text-blue-400">
+                  <p className="text-xs tracking-wide uppercase text-slate-400">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+9779819671738"
+                    className="text-sm font-medium text-white transition-colors hover:text-blue-400"
+                  >
                     +977 9819671738
                   </a>
                 </div>
@@ -165,8 +200,13 @@ const Footer = () => {
                   <FaEnvelope className="w-3.5 h-3.5 text-slate-300" />
                 </div>
                 <div>
-                  <p className="text-xs tracking-wide uppercase text-slate-400">Email</p>
-                  <a href="mailto:info@amulyabiz.com.np" className="text-sm font-medium text-white break-all transition-colors hover:text-blue-400">
+                  <p className="text-xs tracking-wide uppercase text-slate-400">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:info@amulyabiz.com.np"
+                    className="text-sm font-medium text-white break-all transition-colors hover:text-blue-400"
+                  >
                     info@amulyabiz.com.np
                   </a>
                 </div>
@@ -181,7 +221,9 @@ const Footer = () => {
                   <FaMapMarkerAlt className="w-3.5 h-3.5 text-slate-300" />
                 </div>
                 <div>
-                  <p className="text-xs tracking-wide uppercase text-slate-400">Address</p>
+                  <p className="text-xs tracking-wide uppercase text-slate-400">
+                    Address
+                  </p>
                   <p className="text-sm font-medium leading-tight text-white">
                     Thamel (opposite Chhya Center),<br></br> Kathmandu, Nepal
                   </p>
@@ -200,8 +242,18 @@ const Footer = () => {
               © {currentYear} Amulya Business Consultant Pvt. Ltd.
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="transition-colors text-slate-400 hover:text-white">Privacy Policy</a>
-              <a href="#" className="transition-colors text-slate-400 hover:text-white">Terms of Service</a>
+              <a
+                href="#"
+                className="transition-colors text-slate-400 hover:text-white"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="#"
+                className="transition-colors text-slate-400 hover:text-white"
+              >
+                Terms of Service
+              </a>
             </div>
           </div>
         </div>

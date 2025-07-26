@@ -10,12 +10,14 @@ import {
 import { useTheme } from "../context/ThemeContext";
 import ContactModal from "./ContactModal";
 import logo from '../assets/images/logo.png';
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const { darkMode, toggleDarkMode } = useTheme();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +35,11 @@ export const Navbar = () => {
   ];
 
   const handleLinkClick = () => setIsOpen(false);
+
+  const handleBrandLogoClick = () => { 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/");
+  };
 
   const handleContactClick = (e) => {
     e.preventDefault();
@@ -58,9 +65,10 @@ export const Navbar = () => {
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 cursor-pointer"
+              onClick={handleBrandLogoClick}
             >
-              <img src={logo} alt="Logo" className="w-14 h-14" />
+              <img src={logo} alt="Logo" className="w-12 h-12 md:w-14 md:h-14 dark:invert" />
             </motion.div>
 
             {/* Desktop Navigation */}
